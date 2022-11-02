@@ -50,6 +50,15 @@ Shopify.Webhooks.Registry.addHandler("APP_UNINSTALLED", {
   },
 });
 
+async function log(topic, shop, webhookRequestBody) {
+  console.log('Hoi Hoi Wereld')
+}
+
+Shopify.Webhooks.Registry.addHandler("PRODUCTS_CREATE", {
+  path: "/api/webhooks",
+  webhookHandler: log,
+});
+
 // The transactions with Shopify will always be marked as test transactions, unless NODE_ENV is production.
 // See the ensureBilling helper to learn more about billing in this template.
 const BILLING_SETTINGS = {
